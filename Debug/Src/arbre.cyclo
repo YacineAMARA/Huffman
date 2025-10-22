@@ -1,0 +1,6 @@
+../Src/arbre.c:8:7:creerFeuille	3
+../Src/arbre.c:29:11:comptage_de_caracteres_total	2
+../Src/arbre.c:41:7:afficherTabArbreHuffman	2
+../Src/arbre.c:67:7:trieArbre	4
+../Src/arbre.c:87:16:creeRacine	2
+../Src/arbre.c:107:7:afficherRacine	1

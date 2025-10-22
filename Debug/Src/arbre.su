@@ -1,0 +1,6 @@
+../Src/arbre.c:8:7:creerFeuille	32	static
+../Src/arbre.c:29:11:comptage_de_caracteres_total	24	static
+../Src/arbre.c:41:7:afficherTabArbreHuffman	24	static
+../Src/arbre.c:67:7:trieArbre	32	static
+../Src/arbre.c:87:16:creeRacine	24	static
+../Src/arbre.c:107:7:afficherRacine	16	static
