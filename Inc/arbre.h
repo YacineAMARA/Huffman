@@ -15,6 +15,7 @@ uint32_t comptage_de_caracteres_total(uint8_t* chaine);
 //uint32_t comptage_de_caracteres_utiliser(uint32_t tab[256]);
 void trieArbre(struct noeud* arbre[256] , uint32_t taille);
 struct noeud* creeRacine(struct noeud * arbre[256], uint32_t taille);
-void afficherRacine(struct noeud* arbre[256] , uint32_t taille);
+void afficherRacine(struct noeud* laracine);
+void parcourirArbre(struct noeud* ptrNoeud);
 
 #endif

@@ -16,7 +16,7 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Startup/%.o: ../Startup/%.s Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"D:/Users/user/Desktop/huffman/Huffman-main/Huffman-main/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/Users/user/Desktop/huffman/Huffman-main/Huffman-main/Drivers/CMSIS/Include" -I"D:/Users/user/Desktop/huffman/Huffman-main/Huffman-main/Inc" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"D:/Utilisateurs/formation/Documents/Desktop/huffman/Huffman/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/Utilisateurs/formation/Documents/Desktop/huffman/Huffman/Drivers/CMSIS/Include" -I"D:/Utilisateurs/formation/Documents/Desktop/huffman/Huffman/Inc" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-Startup
 

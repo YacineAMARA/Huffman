@@ -2,5 +2,6 @@
 ../Src/arbre.c:29:11:comptage_de_caracteres_total	24	static
 ../Src/arbre.c:41:7:afficherTabArbreHuffman	24	static
 ../Src/arbre.c:67:7:trieArbre	32	static
-../Src/arbre.c:87:16:creeRacine	24	static
-../Src/arbre.c:107:7:afficherRacine	16	static
+../Src/arbre.c:86:16:creeRacine	24	static
+../Src/arbre.c:105:7:afficherRacine	16	static
+../Src/arbre.c:121:7:parcourirArbre	24	static
