@@ -19,6 +19,7 @@ int main(void)
 	SYSTICK_Init();
 
 	uint8_t texte[]="aaaabbbccd";
+	//aaaaabbbbbccccccccddddddddd exemple ou il faut retrier a chaque fois
 	uint32_t tabCaractere [256]={0};
 	struct noeud* arbreHuffman[256];
 	//uint32_t nbrCaractereDifferent=0;
@@ -29,25 +30,24 @@ int main(void)
 
 
 	occurence(texte , tabCaractere);
-	//nbrCaractereDifferent = comptage_de_caracteres_utiliser(tabCaractere);
-	creerFeuille(arbreHuffman,tabCaractere);
-	//printf("arbre non trier\r\n");
-	//afficherTabArbreHuffman(arbreHuffman , compte);
-//////////////////////////////////////////////////////////////////////////
-	trieArbre(arbreHuffman, compte);
-	printf("arbre trier\r\n");
-	afficherTabArbreHuffman(arbreHuffman , compte);
-/////////////////////////////////////////////////////////////////////////////////////
 
+	creerFeuille(arbreHuffman,tabCaractere);
+	afficherFeuilles(arbreHuffman, compte);
+
+	trieArbre(arbreHuffman, compte);
+	/*printf("tableau de huffman apres trie\r\n");
+	afficherTabArbreHuffman(arbreHuffman , compte);
+	printf("//////////////////\r\n");
+	*/
 
 	racine = creeRacine(arbreHuffman , compte);
-	printf("arbre apres creation de la racine \r\n");
-	afficherTabArbreHuffman(arbreHuffman , compte);
-
-	afficherRacine(racine);
 
 	parcourirArbre(racine);
 
+	LiberationMemoireArbre(racine);
+
+	printf("Codes de Huffman pour chaque caractere :\r\n");
+	creerCode(racine, 1, 0);
 
 
 	while(1){

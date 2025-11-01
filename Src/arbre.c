@@ -7,11 +7,9 @@ uint32_t compte = 0;
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	void creerFeuille(struct noeud * arbre[256], uint32_t tab[256])
 	{
-
-
-		for(uint32_t i=0;i<256;i++)
+		for(uint32_t i=0;i<256;i++) //parcourir le tableau
 		{
-			if (tab[i] != 0)
+			if (tab[i] != 0) //verifier si le est utiliser
 			{
 				arbre[compte]= malloc(sizeof(struct noeud));
 				arbre[compte]->c = i;
@@ -68,6 +66,7 @@ uint32_t compte = 0;
 	{
 		struct noeud* temp;
 
+
 		    for (uint32_t i = 0; i < taille - 1; i++)
 		    {
 		        for (uint32_t j = 0; j < taille - i - 1; j++)
@@ -83,84 +82,121 @@ uint32_t compte = 0;
 		    }
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////
-	struct noeud* creeRacine(struct noeud * arbre[256], uint32_t taille)
+	struct noeud* creeRacine( struct noeud * arbre[256], uint32_t taille)
 	{
-		struct noeud* racine;
+		struct noeud* racine_a_cree ;
+
+
 
 		for (uint32_t i=1 ; i < taille ; i++)
 		{
-			racine = arbre[i] ;
+			//trieArbre(arbre , taille);
 
-			racine->c= '!';
-			racine->occurence = arbre[i-1]->occurence + arbre[i]->occurence ;
-			racine->code = 0;
-			racine->tailleCode =0;
-			racine->droite = arbre[i] ;
-			racine->gauche = arbre[i-1] ;
+			racine_a_cree = malloc(sizeof(struct noeud));
+			racine_a_cree->c= '!';
+			racine_a_cree->occurence = arbre[i-1]->occurence + arbre[i]->occurence ;
+			racine_a_cree->code = 0;
+			racine_a_cree->tailleCode =0;
+			racine_a_cree->droite = arbre[i] ;
+			racine_a_cree->gauche = arbre[i-1] ;
+			arbre[i]=racine_a_cree ;
 		}
-		return racine;
+		return racine_a_cree ;
 	}
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-	void afficherRacine(struct noeud* laracine)
+	void afficherRacine(struct noeud* la_racine)
 	{
 		printf("affichege de la racine \r\n");
 		printf("\n");
 
-		printf("le caractere initial est %c \r\n",laracine->c);
-		printf("le nombre d'occurences est %d \r\n",laracine->occurence);
-		printf("le code binaire dans l'arbre est %x \r\n",laracine->code);
-		printf("le nombre de bits du code est %d \r\n",laracine->tailleCode);
-		printf("le caractere droit est %c \r\n",laracine->droite->c);
-		printf("le caractere gauche est %c \r\n",laracine->gauche->c);
+		printf("le caractere initial de la racine est %c \r\n",la_racine->c);
+		printf("le nombre d'occurences de la recine est %d \r\n",la_racine->occurence);
+		//printf("le code binaire dans l'arbre est %x \r\n",la_racine->code);
+		//printf("le nombre de bits du code est %d \r\n",la_racine->tailleCode);
+		printf("\r\n");
+		printf("le caractere droit est %c \r\n",la_racine->droite->c);
+		printf("son nombre d'ocurence est  %c \r\n",la_racine->droite->occurence);
 
-		printf("\n");
+		printf("le caractere gauche est %c \r\n",la_racine->gauche->c);
+		printf("son nombre d'ocurence est  %c \r\n",la_racine->gauche->occurence);
+
+		printf("\r\n");
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	void parcourirArbre(struct noeud* ptrNoeud)
 	{
-		uint32_t test=0;
-
 		if (ptrNoeud->droite == NULL && ptrNoeud->gauche == NULL)
 		{
 			printf("Je suis une feuille\r\n");
 			printf("mon caractere initial est %c \r\n",ptrNoeud->c);
 			printf("mon nombre d'occurences est %d \r\n",ptrNoeud->occurence);
+			printf("\r\n");
 		}
 
 		else
 		{
 			printf("Je suis un nœud\r\n");
 			//afficher le noeud
-			printf("mon caractere initial est %c \r\n",ptrNoeud->c);
-			printf("mon nombre d'occurences est %d \r\n",ptrNoeud->occurence);
-			printf("\r\n");
+			printf("mon caractere initial est %c mon nombre d'occurences est %d \r\n",ptrNoeud->c ,ptrNoeud->occurence );
 			// afficher gauche et droit du noeud
-			printf("mon caractere initial droit est %c \r\n",ptrNoeud->droite->c);
-			printf("son nombre d'occurences est %d \r\n",ptrNoeud->droite->occurence);
-			printf("\r\n");
-			printf("mon caractere initial gauche est %c \r\n",ptrNoeud->gauche->c);
-			printf("son nombre d'occurences est %d \r\n",ptrNoeud->gauche->occurence);
+			printf("mon caractere initial droit est %c son nombre d'occurences est %d \r\n",ptrNoeud->droite->c ,ptrNoeud->droite->occurence);
+			printf("mon caractere initial gauche est %c son nombre d'occurences est %d \r\n",ptrNoeud->gauche->c ,ptrNoeud->gauche->occurence);
+			printf("---------------------\r\n");
+
+			parcourirArbre (ptrNoeud->gauche); // On va a gauche
+			parcourirArbre (ptrNoeud->droite); //On va a droite
 
 
-			if(test % 2 == 0)
-			{
-				parcourirArbre (ptrNoeud->gauche); // On va a gauche
-				test++;
-			}
-			else
-			{
-				parcourirArbre (ptrNoeud->droite); //On va a droite
-			}
 		}
-		test=0;
 	}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+	void afficherFeuilles(struct noeud* arbre[256] ,uint32_t taille)
+	{
+	    printf("Feuilles de l'arbre de Huffman :\r\n");
+	    printf("Caractere\tOccurrences\tCode\t\tTaille Code\r\n");
+	    printf("___________________________________________________________\r\n\n");
 
+	    for (int i = 0; i < taille; i++)
+	    {
+	    	printf("%c\t\t%d\t\t%x\t\t%d\r\n",
+	            arbre[i]->c,
+	            arbre[i]->occurence,
+				arbre[i]->code,
+				arbre[i]->tailleCode);
 
-
-
-
+	    }
+	    printf("___________________________________________________________\r\n");
+	    printf("\r\n");
+	}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////:
+	void LiberationMemoireArbre(struct noeud* ptrNoeud)
+	{
+	    if (ptrNoeud == NULL) {
+	        return;
+	    }
+	    LiberationMemoireArbre(ptrNoeud->gauche);
+	    LiberationMemoireArbre(ptrNoeud->droite);
+	    free(ptrNoeud);
+	}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	void creerCode(struct noeud* ptrNoeud, uint32_t code, uint32_t taille) {
+	    if (ptrNoeud == NULL) {
+	        return;
+	    }
+	    if (ptrNoeud->gauche == NULL && ptrNoeud->droite == NULL) {
+	        ptrNoeud->tailleCode = taille;
+	        ptrNoeud->code = code;
+	        printf("Caractere : '%c' \t Code : ", ptrNoeud->c);
+	        for (int i = taille - 1; i >= 0; i--) {
+	            printf("%d", (code >> i) & 1);
+	        }
+	        printf(" \t Taille : %d bits\r\n", taille);
+	    } else {
+	        creerCode(ptrNoeud->gauche, code << 1, taille + 1); // on inject 0
+	        creerCode(ptrNoeud->droite, (code << 1) + 1, taille + 1); // on inject 1
+	    }
+	}
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

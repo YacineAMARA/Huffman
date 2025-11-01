@@ -18,4 +18,8 @@ struct noeud* creeRacine(struct noeud * arbre[256], uint32_t taille);
 void afficherRacine(struct noeud* laracine);
 void parcourirArbre(struct noeud* ptrNoeud);
 
+void afficherFeuilles(struct noeud* arbre[256] ,uint32_t taille);
+void LiberationMemoireArbre(struct noeud* ptrNoeud) ;
+void creerCode(struct noeud* ptrNoeud, uint32_t code, uint32_t taille);
+
 #endif

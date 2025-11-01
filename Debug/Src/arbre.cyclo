@@ -1,7 +1,10 @@
 ../Src/arbre.c:8:7:creerFeuille	3
-../Src/arbre.c:29:11:comptage_de_caracteres_total	2
-../Src/arbre.c:41:7:afficherTabArbreHuffman	2
-../Src/arbre.c:67:7:trieArbre	4
-../Src/arbre.c:86:16:creeRacine	2
-../Src/arbre.c:105:7:afficherRacine	1
-../Src/arbre.c:121:7:parcourirArbre	4
+../Src/arbre.c:27:11:comptage_de_caracteres_total	2
+../Src/arbre.c:39:7:afficherTabArbreHuffman	2
+../Src/arbre.c:65:7:trieArbre	4
+../Src/arbre.c:85:16:creeRacine	2
+../Src/arbre.c:107:7:afficherRacine	1
+../Src/arbre.c:126:7:parcourirArbre	3
+../Src/arbre.c:153:7:afficherFeuilles	2
+../Src/arbre.c:172:7:LiberationMemoireArbre	2
+../Src/arbre.c:182:7:creerCode	5
